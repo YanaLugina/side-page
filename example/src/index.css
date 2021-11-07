@@ -1,3 +1,14 @@
+html {
+  display: flex;
+  flex-flow: row wrap;
+  align-self: stretch;
+  justify-self: stretch;
+  align-items: stretch;
+  justify-content: stretch;
+  min-height: 100vh;
+  flex-grow: 1;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,6 +17,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-flow: row wrap;
+  align-self: stretch;
+  justify-self: stretch;
+  align-items: stretch;
+  justify-content: stretch;
+  flex-grow: 1;
+}
+
+#root {
+  display: flex;
+  flex-flow: row wrap;
+  align-self: stretch;
+  justify-self: stretch;
+  align-items: stretch;
+  justify-content: stretch;
+  flex-grow: 1;
 }
 
 code {
