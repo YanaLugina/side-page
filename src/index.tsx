@@ -1,10 +1,14 @@
 import * as React from 'react'
-import styles from './styles.module.css'
+import style from './sidepage.module.scss'
 
-interface Props {
-  text: string
+export interface Props {
+  name: string
 }
 
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+export const SidePage = ({ name }: Props) => {
+  return (
+    <div className={style.spWrap}>
+      { name }
+    </div>
+  )
 }

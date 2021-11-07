@@ -1,10 +1,21 @@
 import React from 'react'
 
-import { ExampleComponent } from 'side-page'
+import { SidePage } from 'side-page'
 import 'side-page/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return (
+      <div style={{
+        backgroundColor: 'rgb(32, 32, 32)',
+        display: 'flex',
+        flexFlow: 'column wrap',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+        flexGrow: 1
+      }}>
+        <SidePage name='fgfgfgfg' />
+      </div>
+    )
 }
 
 export default App
