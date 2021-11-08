@@ -1,3 +1,28 @@
-.spWrap {
-  background-color: #FFFFFF;
+.sidePage {
+  background-color: transparent;
+  position: absolute;
+  .clickArea {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(100, 5, 95, 0.3);
+  }
+  .spWrap {
+    display: block;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    // width: 30%;
+    background-color: white;
+    width: 0;
+    transition: all ease-out 600ms;
+  }
+
+  &.scaleElement {
+    .spWrap {
+      width: 30%;
+      transition: all ease-out 600ms;
+    }
+  }
 }
+

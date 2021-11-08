@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { SidePage } from 'side-page'
 import 'side-page/dist/index.css'
 
 const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
       <div style={{
         backgroundColor: 'rgb(32, 32, 32)',
@@ -13,7 +15,12 @@ const App = () => {
         justifyContent: 'flex-start',
         flexGrow: 1
       }}>
-        <SidePage name='fgfgfgfg' />
+        <SidePage
+          isOpen={isOpen}
+          handleClose={() => setIsOpen(false)}
+          wrapped={<button>Add</button>}
+        />
+        <button onClick={() => setIsOpen(true)}>Open</button>
       </div>
     )
 }
