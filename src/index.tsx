@@ -8,109 +8,76 @@ export interface Wrapped {
 
 export interface Props {
   id: string
-  isOpenModal?: boolean
   wrappedArr?: Wrapped[] | null
-  handleClose: (arg: string) => void
+  handlePopClose: (arg: string) => void
 }
 
 interface PropItem {
   id: string
   wrapped: JSX.Element[]
-  handleCloseItem: (arg: string) => void
+  handleCloseItem: () => void
 }
 
 const ModalItem = ({ id, wrapped, handleCloseItem }: PropItem) => {
+  const [scale, setScale] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => !scale && setScale(true), 600)
+  }, [])
+
+  const handleCloseItemLocal = () => {
+    handleCloseItem()
+  }
+
   return (
     <div
       id={id}
-      className={style.sidePage}
+      className={style.sidePageItem + (scale ? ' ' + style.scaleElement : '')}
       onClick={(e) => e.stopPropagation()}
     >
       <div className={style.spWrap}>{wrapped}</div>
       <div
-        className={style.clickArea + ' ' + style.more}
-        onClick={() => handleCloseItem(id)}
+        className={style.clickAreaItem + ' ' + style.more}
+        onClick={() => handleCloseItemLocal()}
       />
     </div>
   )
 }
 
-export const SidePage = ({
-  id,
-  isOpenModal,
-  wrappedArr,
-  handleClose
-}: Props) => {
-  const [scale, setScale] = useState(false)
+export const SidePage = ({ id, wrappedArr, handlePopClose }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
-  const initialState: Wrapped[] = []
-  const [modalStack, setModalStack] = useState(initialState)
 
-  useEffect(() => {
-    isOpenModal && setIsOpen(true)
-  }, [isOpenModal])
-
-  useEffect(() => {
-    console.log('-----wrappedArr setData', wrappedArr)
-    isOpenModal &&
-      wrappedArr &&
-      wrappedArr.length > 0 &&
-      setModalStack(wrappedArr)
-  }, [wrappedArr, isOpenModal])
-
-  const handleCloseItem = (id: string) => {
-    console.log('------slice', id)
-    if (modalStack.length > 0) {
-      setModalStack((s) => {
-        const result = s.slice(0, -1)
-        if (result.length === 0) {
-          handleCloseLocal()
-        }
-        return result
-      })
-    }
-  }
-
-  const handleCloseLocal = () => {
-    setTimeout(() => {
-      setIsOpen(false)
-      handleClose(id)
-    }, 600)
-    // setScale(false)
+  const handleCloseLocal = (id: string) => {
+    handlePopClose(id)
   }
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (isOpen) {
-        setScale(true)
+    if (wrappedArr) {
+      if (wrappedArr.length > 0) {
+        setIsOpen(true)
       } else {
-        setScale(false)
+        setIsOpen(false)
       }
-    }, 600)
-
-    return () => clearTimeout(timer)
-  }, [isOpen])
+    }
+  }, [wrappedArr])
 
   const sp = (
-    <div className={style.sidePage + (scale ? ' ' + style.scaleElement : '')}>
-      {modalStack &&
-        modalStack.length > 0 &&
-        modalStack.map((modal) => {
+    <div className={style.sidePage}>
+      {wrappedArr &&
+        wrappedArr.length > 0 &&
+        wrappedArr.map((modal) => {
           return (
             <ModalItem
               key={modal.id}
               id={modal.id}
               wrapped={modal.data}
-              handleCloseItem={handleCloseItem}
+              handleCloseItem={() => handleCloseLocal(modal.id)}
             />
           )
         })}
-      <div
-        className={style.clickArea}
-        onClick={() => modalStack.length === 0 && handleCloseLocal()}
-      />
+      <div className={style.clickArea} />
     </div>
   )
 
-  return <div id='side_page'>{isOpenModal ? sp : ''}</div>
+  return <div id={'sidePage_' + id}>{isOpen ? sp : ''}</div>
 }
