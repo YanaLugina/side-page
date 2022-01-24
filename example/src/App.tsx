@@ -1,18 +1,19 @@
 import React from 'react'
 
 import { SidePage, SidePageProvider, useSidePage } from 'side-page'
+import NewComponent from './NewComponent/NewComponent'
 import 'side-page/dist/index.css'
 
 const App = () => {
   /* set some initial data */
   const { sidePages, addSidePage, sliceSidePage } = useSidePage()
-
-  const handlePush2 = () => {
+  console.log('sidePages', sidePages);
+  /* const handlePush2 = () => {
     addSidePage({ id: '5', data: [<div key={555}>Yap!</div>] })
-  }
+  } */
 
   const handlePush1 = () => {
-    addSidePage({ id: '4', data: [<button key={3434} onClick={handlePush2}>Add</button>] })
+    addSidePage({ id: '4', data: [<NewComponent key={5656} handleAddSidePage={addSidePage} />] })
   }
 
   const handlePopClose = (id: string) => {
