@@ -1,6 +1,5 @@
 import React from 'react'
 import SidePageLocal from './SidePage/SidePage'
-import { SidePageProvider, SidePageConsumer } from './sidePageContext'
 import useSidePage from './useSidePage'
 
 export interface Wrapped {
@@ -11,20 +10,13 @@ export interface Wrapped {
 export interface Props {
   id: string
   handlePopClose: (arg: string) => void
+  value: Wrapped[]
 }
 
-const SidePage = ({ id, handlePopClose }: Props) => {
+const SidePage = ({ id, handlePopClose, value }: Props) => {
   return (
-    <SidePageConsumer>
-      {(context) => (
-        <SidePageLocal
-          handlePopClose={handlePopClose}
-          id={id}
-          wrappedArr={context}
-        />
-      )}
-    </SidePageConsumer>
+    <SidePageLocal handlePopClose={handlePopClose} id={id} wrappedArr={value} />
   )
 }
 
-export { SidePage, SidePageProvider, useSidePage }
+export { SidePage, useSidePage }
