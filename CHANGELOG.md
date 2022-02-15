@@ -7,5 +7,7 @@
 4) Was added CHANGELOG.md.
 5) Refactored example
 
-##1.0.0
-First release in npm
+
+##0.0.3
+Fixed typescript/parser problems
+Updated dependency
