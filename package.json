@@ -1,10 +1,13 @@
 {
-  "name": "side-page",
-  "version": "1.0.0",
+  "name": "@yana4961/side-page",
+  "version": "0.0.1",
   "description": "React side-page",
   "author": "YanaLugina &lt;yana4961@gmail.com&gt;",
   "license": "MIT",
-  "repository": "YanaLugina &lt;yana4961@gmail.com&gt;/side-page",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YanaLugina/side-page.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",

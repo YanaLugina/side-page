@@ -6,3 +6,6 @@
 3) Was added sass to dev dependencies.
 4) Was added CHANGELOG.md.
 5) Refactored example
+
+##1.0.0
+First release in npm
