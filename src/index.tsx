@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-use-before-define
 import React from 'react'
 import SidePageLocal from './SidePage/SidePage'
 import useSidePage from './useSidePage'
