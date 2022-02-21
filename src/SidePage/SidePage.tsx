@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-use-before-define
 import React, { useEffect, useState } from 'react'
 import style from '../sidepage.module.scss'
 import ModalItem from '../ModalItem'
@@ -13,7 +14,7 @@ export interface Props {
   handlePopClose: (arg: string) => void
 }
 
-export const SidePage = ({ id, wrappedArr, handlePopClose }: Props) => {
+const SidePage = ({ id, wrappedArr, handlePopClose }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleCloseLocal = (id: string) => {
