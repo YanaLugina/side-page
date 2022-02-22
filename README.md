@@ -2,7 +2,7 @@
 
 > React side-page
 
-[![NPM](https://img.shields.io/npm/v/side-page.svg)](https://www.npmjs.com/package/side-page) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/side-page.svg)](https://www.npmjs.com/package/@yana4961/side-page) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
